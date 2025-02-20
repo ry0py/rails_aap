@@ -40,12 +40,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "password should be present (nonblank)" do
-    @user.password = @user.password_confirmation = " " * 8
+    @user.password = @user.password_confirmation = " " * 6
     assert_not @user.valid?
   end
 
   test "password should have a minimum length" do
-    @user.password = @user.password_confirmation = "a" * 7 # パスワードを5文字に設定
+    @user.password = @user.password_confirmation = "a" * 5 # パスワードを5文字に設定
     assert_not @user.valid?
   end
 

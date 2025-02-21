@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new", as: "login"
   post   "/login",   to: "sessions#create"
   delete "/logout",  to: "sessions#destroy"
-  resources :users # これ追加でほかのアクションも使えるようになる
+  resources :users # これで基本アクションをすべて登録している
+  resources :microposts,          only: [:create, :destroy]
+  get '/microposts', to: 'static_pages#home'
 end
